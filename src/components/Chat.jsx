@@ -1,42 +1,26 @@
 import { useState } from "react";
-
+import axios from 'axios'
 export default function Formulario() {
-  const [respuesta, setRespuesta] = useState("");
-  const [solucion, setSolucion] = useState(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Envía las respuestas del formulario al backend
-    const res = await fetch("/api/interpretar-respuesta", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ respuesta }),
-    });
-
-    const data = await res.json();
-    setSolucion(data.solucion);
-  };
-
+    const[question, setQuestion] = useState("");
+    const[answer, setAnswer] = useState("");
+    async function generateAnswer(){
+        setAnswer("Cargando...")
+        const response = await axios({
+            url:"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyBXpMHvDDds12XKlteMg36hr-RbXm4OXqw",
+            method:"post",
+            data:{
+                contents:[
+                    {parts:[{
+                        "text":question}]}]}
+        });
+        setAnswer(response['data']['candidates'][0]['content']['parts'][0]['text'])
+    }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={respuesta}
-          onChange={(e) => setRespuesta(e.target.value)}
-          placeholder="Ingresa tu respuesta aquí..."
-        />
-        <button type="submit">Enviar</button>
-      </form>
-
-      {solucion && (
-        <div>
-          <h3>Solución propuesta:</h3>
-          <pre>{JSON.stringify(solucion, null, 2)}</pre>
-        </div>
-      )}
+        <h1>Chat</h1>
+        <textarea value={question} onChange={(e) => setQuestion(e.target.value)} cols='30' rows='10'></textarea>
+        <button onClick={generateAnswer}>Generador de respuesta</button>
+        <pre>{answer}</pre>
     </div>
   );
 }
