@@ -15,13 +15,12 @@ import Geography from "./scenes/geography";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
-<<<<<<< HEAD
+
 import Formulario from "./components/Chat";
-=======
+
 import LogIn from "./scenes/login/Login";
 import RegisterForm from "./scenes/login/Logup";
 import FinancialPlanForm from "./scenes/formFinanceStrategy/form";
->>>>>>> cc7e9eb2ef80a88725aa2408b2a364d26e6c6d72
 
 function App() {
   const [theme, colorMode] = useMode();

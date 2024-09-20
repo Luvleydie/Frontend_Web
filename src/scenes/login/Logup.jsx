@@ -4,10 +4,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Esquema de validación con Yup
 const registerSchema = yup.object().shape({
-  fullName: yup
+  name: yup
     .string()
     .required('El nombre completo es requerido'),
   email: yup
@@ -29,10 +30,44 @@ const RegisterForm = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const onSubmit = (data) => {
+  const navigate = useNavigate()
+  const onSubmit = async (data) => {
     console.log(data);
-    // Aquí puedes manejar el envío de los datos de registro
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          
+        },
+        body: JSON.stringify(data),
+      });
+      
+      // Verificar si la solicitud fue exitosa
+      if (!response.ok) {
+        throw new Error('Error en la solicitud');
+      }
+  
+      const responseData = await response.json();
+      console.log(responseData);
+  
+      // Guardar el id en localStorage
+      if (responseData.newUser._id) {
+        const id = localStorage.setItem('userId', responseData.newUser._id);
+        if(!id){
+          navigate('/finance-form')
+        }
+        console.log('ID guardado en localStorage:', responseData.newUser._id);
+      }
+  
+      console.log('Respuesta del servidor:', responseData);
+    } catch (error) {
+      console.error('Error al enviar los datos:', error);
+    }
   };
+  
+  
 
   return (
     <Container component="main" maxWidth="lg">
@@ -62,9 +97,9 @@ const RegisterForm = () => {
             margin="normal"
             fullWidth
             label="Nombre Completo"
-            {...register('fullName')}
-            error={!!errors.fullName}
-            helperText={errors.fullName ? errors.fullName.message : ''}
+            {...register('name')}
+            error={!!errors.name}
+            helperText={errors.name ? errors.fullName.message : ''}
           />
 
           {/* Campo de correo electrónico */}
