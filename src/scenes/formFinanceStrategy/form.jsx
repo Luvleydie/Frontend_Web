@@ -5,6 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Tooltip, IconButton } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info'; // Importa el ícono de información
+import { MenuItem } from '@mui/material';
+
 
 // Esquema de validación con Yup
 const schema = yup.object().shape({
@@ -134,20 +136,15 @@ const FinancialPlanForm = () => {
         variant="outlined"
         error={!!errors.frecuenciaCompra}
         helperText={errors.frecuenciaCompra?.message}
-        InputProps={{
-          style: { color: 'white' }, // Cambia el color del texto aquí
-        }}
-        InputLabelProps={{
-          style: { color: 'white' }, // Cambia el color de la etiqueta aquí
-        }}
       >
-        <option value="semanal">Semanal</option>
-        <option value="mensual">Mensual</option>
-        <option value="ocasional">Ocasional</option>
+        <MenuItem value="semanal">Semanal</MenuItem>
+        <MenuItem value="mensual">Mensual</MenuItem>
+        <MenuItem value="ocasional">Ocasional</MenuItem>
       </TextField>
     )}
   />
 </Grid>
+
 
             <Grid item xs={12} md={6}>
   <Controller
@@ -742,16 +739,11 @@ const FinancialPlanForm = () => {
         variant="outlined"
         error={!!errors.estadoCivil}
         helperText={errors.estadoCivil?.message}
-        InputLabelProps={{
-          style: { color: '#fff' },
-        }}
-        InputProps={{
-          style: { color: '#fff' },
-        }}
+        
       >
-        <option value="soltero">Soltero</option>
-        <option value="casado">Casado</option>
-        <option value="divorciado">Divorciado</option>
+        <MenuItem value="soltero">Soltero</MenuItem>
+        <MenuItem value="casado">Casado</MenuItem>
+        <MenuItem value="divorciado">Divorciado</MenuItem>
       </TextField>
     )}
   />
