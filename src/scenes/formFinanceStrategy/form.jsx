@@ -45,9 +45,32 @@ const FinancialPlanForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+
+    const userId = localStorage.getItem('userId');
+  
+    try {
+     
+      const response = await fetch(`http://localhost:5000/api/respuestas/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      const responseData = await response.json();
+
+      if (!responseData) {
+        alert("Formulario agregado")
+      }
+      console.log('Respuesta del servidor:', responseData);
+    } catch (error) {
+      console.error('Error al enviar los datos:', error);
+    }
   };
+  
 
   const [currentSection, setCurrentSection] = useState(0);
   const sections = [

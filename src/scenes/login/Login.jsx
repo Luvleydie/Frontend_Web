@@ -3,7 +3,7 @@ import { TextField, Button, Box, Typography, Container } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Definir esquema de validación con Yup
 const loginSchema = yup.object().shape({
@@ -22,8 +22,41 @@ const LogIn = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = (data) => {
+  const navigate = useNavigate()
+
+  const onSubmit = async (data) => {
     console.log(data);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          
+        },
+        body: JSON.stringify(data),
+      });
+      
+      // Verificar si la solicitud fue exitosa
+      if (!response.ok) {
+        throw new Error('Error en la solicitud');
+      }
+  
+      const responseData = await response.json();
+      console.log(responseData);
+  
+      // Guardar el id en localStorage
+      
+         localStorage.setItem('userId', responseData[0]._id);
+        navigate('/finance-form')
+        
+      
+      
+  
+     
+    } catch (error) {
+      console.error('Error al enviar los datos');
+    }
     // Aquí puedes manejar el envío de los datos del login
   };
 
