@@ -8,7 +8,7 @@ import { ColorModeContext, useMode } from "./theme";
 import LogIn from "./scenes/login/Login";
 import RegisterForm from "./scenes/login/Logup";
 import FinancialPlanForm from "./scenes/formFinanceStrategy/form";
-
+import Formulario from "./components/Chat";
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -36,6 +36,7 @@ function App() {
               <Route path="/register" element={<RegisterForm />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/finance-form" element={<FinancialPlanForm/>}/>
+              <Route path="/ia" element={<Formulario/>}/>
             </Routes>
           </main>
         </div>
