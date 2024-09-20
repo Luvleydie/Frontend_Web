@@ -3,26 +3,23 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import Team from "./scenes/team";
-import Invoices from "./scenes/invoices";
-import Contacts from "./scenes/contacts";
-import Bar from "./scenes/bar";
-import Form from "./scenes/form";
-import Line from "./scenes/line";
-import Pie from "./scenes/pie";
-import FAQ from "./scenes/faq";
-import Geography from "./scenes/geography";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/calendar";
 <<<<<<< HEAD
-import Formulario from "./components/Chat";
-=======
 import LogIn from "./scenes/login/Login";
 import RegisterForm from "./scenes/login/Logup";
 import FinancialPlanForm from "./scenes/formFinanceStrategy/form";
->>>>>>> cc7e9eb2ef80a88725aa2408b2a364d26e6c6d72
+import Formulario from "./components/Chat";
+=======
+import Calendar from "./scenes/calendar/calendar";
 
+import Formulario from "./components/Chat";
+
+import LogIn from "./scenes/login/Login";
+import RegisterForm from "./scenes/login/Logup";
+import FinancialPlanForm from "./scenes/formFinanceStrategy/form";
+
+>>>>>>> 1c05e0b1ba97f2a9de4823d3cc895574e1f32b1d
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -50,17 +47,7 @@ function App() {
               <Route path="/register" element={<RegisterForm />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/finance-form" element={<FinancialPlanForm/>}/>
-              <Route path="/team" element={<Team />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/invoices" element={<Invoices />} />
-              <Route path="/form" element={<Form />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/line" element={<Line />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/geography" element={<Geography />} />
-              <Route path="/ia" element={<Formulario />} />
+              <Route path="/ia" element={<Formulario/>}/>
             </Routes>
           </main>
         </div>
