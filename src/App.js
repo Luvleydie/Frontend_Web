@@ -5,7 +5,6 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/calendar";
 import LogIn from "./scenes/login/Login";
 import RegisterForm from "./scenes/login/Logup";
 import FinancialPlanForm from "./scenes/formFinanceStrategy/form";
