@@ -99,107 +99,226 @@ const FinancialPlanForm = () => {
         {currentSection === 0 && (
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              <Controller
-                name="frecuenciaCompra"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    select
-                    fullWidth
-                    label="Frecuencia de Compra"
-                    variant="outlined"
-                    error={!!errors.frecuenciaCompra}
-                    helperText={errors.frecuenciaCompra?.message}
-                  >
-                    <option value="semanal">Semanal</option>
-                    <option value="mensual">Mensual</option>
-                    <option value="ocasional">Ocasional</option>
-                  </TextField>
-                )}
-              />
-            </Grid>
+  <Controller
+    name="frecuenciaCompra"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        select
+        fullWidth
+        label="Frecuencia de Compra"
+        variant="outlined"
+        error={!!errors.frecuenciaCompra}
+        helperText={errors.frecuenciaCompra?.message}
+        InputProps={{
+          style: { color: 'white' }, // Cambia el color del texto aquí
+        }}
+        InputLabelProps={{
+          style: { color: 'white' }, // Cambia el color de la etiqueta aquí
+        }}
+      >
+        <option value="semanal">Semanal</option>
+        <option value="mensual">Mensual</option>
+        <option value="ocasional">Ocasional</option>
+      </TextField>
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="productosMasComprados"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="text"
-                    label="Tipo de productos más comprados"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.productosMasComprados}
-                    helperText={errors.productosMasComprados?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="productosMasComprados"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label="Tipo de productos más comprados"
+        fullWidth
+        variant="outlined"
+        error={!!errors.productosMasComprados}
+        helperText={errors.productosMasComprados?.message}
+        InputProps={{
+          style: { color: 'white' }, // Cambia el color del texto aquí
+        }}
+        InputLabelProps={{
+          style: { color: 'white' }, // Cambia el color de la etiqueta aquí
+        }}
+      />
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="presupuestoMensual"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="number"
-                    label="Presupuesto mensual"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.presupuestoMensual}
-                    helperText={errors.presupuestoMensual?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="presupuestoMensual"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Presupuesto Mensual
+            <Tooltip 
+              title="Aquí puedes describir la cantidad de dinero que piensas gastar en un mes."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.presupuestoMensual}
+        helperText={errors.presupuestoMensual?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="salarioMensual"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="number"
-                    label="Salario mensual"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.salarioMensual}
-                    helperText={errors.salarioMensual?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="salarioMensual"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Salario Mensual
+            <Tooltip 
+              title="Aquí puedes describir la cantidad de dinero que ganas en un mes con tu trabajo fijo."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.salarioMensual}
+        helperText={errors.salarioMensual?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="ingresosAdicionales"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="text"
-                    label="Ingresos adicionales"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.ingresosAdicionales}
-                    helperText={errors.ingresosAdicionales?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="ingresosAdicionales"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Ingresos Adicionales
+            <Tooltip 
+              title="Aquí puedes describir cualquier bonificación que recibas dentro de tu trabajo fijo, como horas extra o recompensas adicionales."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.ingresosAdicionales}
+        helperText={errors.ingresosAdicionales?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="bonificaciones"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="text"
-                    label="Bonificaciones"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.bonificaciones}
-                    helperText={errors.bonificaciones?.message}
+  <Controller
+    name="bonificaciones"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Bonificaciones
+            <Tooltip 
+              title="Aquí puedes describir cualquier bonificación que recibas fuera de tu trabajo fijo, como trabajos secundarios."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.bonificaciones}
+        helperText={errors.bonificaciones?.message}
                   />
                 )}
               />
@@ -211,105 +330,236 @@ const FinancialPlanForm = () => {
         {currentSection === 1 && (
   <Grid container spacing={2}>
     <Grid item xs={12} md={6}>
-      <Controller
-        name="creditos"
-        control={control}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            type="text"
-            label={
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                Detalles de créditos actuales
-                <Tooltip title="Aquí puedes describir los créditos o préstamos activos, incluyendo montos y plazos.">
-                  <IconButton>
-                    <InfoIcon sx={{ fontSize: 20 }} /> {/* Ícono de información */}
-                  </IconButton>
-                </Tooltip>
-              </div>
-            }
-            fullWidth
-            variant="outlined"
-            multiline
-            rows={4} 
-            error={!!errors.creditos}
-                    helperText={errors.creditos?.message}
-          />
-        )}
+  <Controller
+    name="creditos"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Detalles de créditos actuales
+            <Tooltip 
+              title="Aquí puedes describir los créditos o préstamos activos, incluyendo montos y plazos."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        multiline
+        rows={4}
+        error={!!errors.creditos}
+        helperText={errors.creditos?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
       />
-    </Grid>
+    )}
+  />
+</Grid>
+
 
     <Grid item xs={12} md={6}>
-      <Controller
-        name="ahorrosMensuales"
-        control={control}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            type="number"
-            label="Ahorros mensuales"
-            fullWidth
-            variant="outlined"
-            error={!!errors.ahorrosMensuales}
-                    helperText={errors.ahorrosMensuales?.message}
-          />
-        )}
+  <Controller
+    name="ahorrosMensuales"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Ahorros mensuales
+            <Tooltip 
+              title="Aquí puedes describir tus ahorros mensuales, incluyendo cualquier detalle relevante."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.ahorrosMensuales}
+        helperText={errors.ahorrosMensuales?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
       />
-    </Grid>
+    )}
+  />
+</Grid>
+
     
     <Grid item xs={12} md={6}>
-      <Controller
-        name="estadoSalud"
-        control={control}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            type="text"
-            label="Estado de salud"
-            fullWidth
-            variant="outlined"
-            error={!!errors.estadoSalud}
-                    helperText={errors.estadoSalud?.message}
-          />
-        )}
+  <Controller
+    name="estadoSalud"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Estado de salud
+            <Tooltip 
+              title="Aquí puedes describir tu estado de salud actual, incluyendo cualquier condición médica relevante."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.estadoSalud}
+        helperText={errors.estadoSalud?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
       />
-    </Grid>
+    )}
+  />
+</Grid>
+
     
     <Grid item xs={12} md={6}>
-      <Controller
-        name="gastosSalud"
-        control={control}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            type="number"
-            label="Gastos en salud"
-            fullWidth
-            variant="outlined"
-            error={!!errors.gastosSalud}
-                    helperText={errors.gastosSalud?.message}
-          />
-        )}
+  <Controller
+    name="gastosSalud"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Gastos en salud
+            <Tooltip 
+              title="Aquí puedes describir los gastos relacionados con la salud, incluyendo consultas médicas, medicamentos y otros tratamientos."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.gastosSalud}
+        helperText={errors.gastosSalud?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
       />
-    </Grid>
+    )}
+  />
+</Grid>
+
     
     <Grid item xs={12} md={6}>
-      <Controller
-        name="seguroMedico"
-        control={control}
-        render={({ field }) => (
-          <TextField
-            {...field}
-            type="text"
-            label="Seguro médico"
-            fullWidth
-            variant="outlined"
-            error={!!errors.seguroMedico}
-                    helperText={errors.seguroMedico?.message}
-          />
-        )}
+  <Controller
+    name="seguroMedico"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Seguro médico
+            <Tooltip 
+              title="Aquí puedes describir los detalles de tu seguro médico, incluyendo cobertura y proveedor."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.seguroMedico}
+        helperText={errors.seguroMedico?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
       />
-    </Grid>
+    )}
+  />
+</Grid>
+
 
     {/* Sección de Deudas */}
     <Grid item xs={12}>
@@ -317,40 +567,96 @@ const FinancialPlanForm = () => {
       {watch('deudas')?.map((deuda, index) => (
         <Grid container spacing={2} key={index} style={{ marginBottom: "1rem" }}>
           <Grid item xs={12} md={6}>
-            <Controller
-              name={`deudas[${index}].concepto`}
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  type="text"
-                  label="Concepto de la deuda"
-                  fullWidth
-                  variant="outlined"
-                  error={!!errors.deudas?.[index]?.concepto}
-                  helperText={errors.deudas?.[index]?.concepto?.message}
-                />
-              )}
-            />
-          </Grid>
+  <Controller
+    name={`deudas[${index}].concepto`}
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Concepto de la deuda
+            <Tooltip 
+              title="Aquí puedes describir el concepto de la deuda, incluyendo cualquier detalle relevante."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.deudas?.[index]?.concepto}
+        helperText={errors.deudas?.[index]?.concepto?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
           
           <Grid item xs={12} md={6}>
-            <Controller
-              name={`deudas[${index}].monto`}
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  type="number"
-                  label="Monto de la deuda"
-                  fullWidth
-                  variant="outlined"
-                  error={!!errors.deudas?.[index]?.monto}
-                  helperText={errors.deudas?.[index]?.monto?.message}
-                />
-              )}
-            />
-          </Grid>
+  <Controller
+    name={`deudas[${index}].monto`}
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Monto de la deuda
+            <Tooltip 
+              title="Aquí puedes describir el monto de la deuda, incluyendo cualquier detalle relevante."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.deudas?.[index]?.monto}
+        helperText={errors.deudas?.[index]?.monto?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
           
           <Grid item xs={12} md={12}>
             <Button variant="outlined" color="secondary" onClick={() => handleRemoveDebt(index)}>
@@ -366,7 +672,7 @@ const FinancialPlanForm = () => {
           backgroundColor: 'orange',  // Color de fondo del botón
           color: 'white',             // Color del texto
           '&:hover': {
-            backgroundColor: 'darkorange',  // Color de fondo cuando se hace hover
+            backgroundColor: 'darkred',  // Color de fondo cuando se hace hover
           },
         }}
       >
@@ -380,100 +686,240 @@ const FinancialPlanForm = () => {
         {currentSection === 2 && (
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              <Controller
-                name="estadoCivil"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    select
-                    fullWidth
-                    label="Estado Civil"
-                    variant="outlined"
-                    error={!!errors.estadoCivil}
-                    helperText={errors.estadoCivil?.message}
-                  >
-                    <option value="soltero">Soltero</option>
-                    <option value="casado">Casado</option>
-                    <option value="divorciado">Divorciado</option>
-                  </TextField>
-                )}
-              />
-            </Grid>
+  <Controller
+    name="estadoCivil"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        select
+        fullWidth
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Estado Civil
+            <Tooltip 
+              title="Aquí puedes seleccionar tu estado civil actual, lo cual puede ser relevante para ciertos análisis o beneficios."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        variant="outlined"
+        error={!!errors.estadoCivil}
+        helperText={errors.estadoCivil?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      >
+        <option value="soltero">Soltero</option>
+        <option value="casado">Casado</option>
+        <option value="divorciado">Divorciado</option>
+      </TextField>
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="aniosMatrimonio"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="number"
-                    label="Años de matrimonio"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.aniosMatrimonio}
-                    helperText={errors.aniosMatrimonio?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="aniosMatrimonio"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Años de matrimonio
+            <Tooltip 
+              title="Aquí puedes describir los años que has estado casado, lo cual puede ser relevante para ciertos análisis o beneficios."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.aniosMatrimonio}
+        helperText={errors.aniosMatrimonio?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="ingresosPareja"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="number"
-                    label="Ingresos de la pareja"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.ingresosPareja}
-                    helperText={errors.ingresosPareja?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="ingresosPareja"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Ingresos de la pareja
+            <Tooltip 
+              title="Aquí puedes describir los ingresos de tu pareja, incluyendo cualquier detalle relevante."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.ingresosPareja}
+        helperText={errors.ingresosPareja?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
             
             {/* Sección de Deudas */}
             <Grid item xs={12}>
               <Typography variant="h6" style={{ marginBottom: "1rem" }}>Deudas de tu pareja</Typography>
               {watch('deudasPareja')?.map((deuda, index) => (
                 <Grid container spacing={2} key={index} style={{ marginBottom: "1rem" }}>
+                <Grid item xs={12} md={6}>
+  <Controller
+    name={`deudasPareja[${index}].concepto`}
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Concepto de la deuda
+            <Tooltip 
+              title="Aquí puedes describir el concepto de la deuda de tu pareja, incluyendo cualquier detalle relevante."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.deudasPareja?.[index]?.concepto}
+        helperText={errors.deudasPareja?.[index]?.concepto?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
                   <Grid item xs={12} md={6}>
-                    <Controller
-                      name={`deudasPareja[${index}].concepto`}
-                      control={control}
-                      render={({ field }) => (
-                        <TextField
-                          {...field}
-                          type="text"
-                          label="Concepto de la deuda"
-                          fullWidth
-                          variant="outlined"
-                          error={!!errors.deudasPareja?.[index]?.concepto}
-                          helperText={errors.deudasPareja?.[index]?.concepto?.message}
-                        />
-                      )}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <Controller
-                      name={`deudasPareja[${index}].monto`}
-                      control={control}
-                      render={({ field }) => (
-                        <TextField
-                          {...field}
-                          type="number"
-                          label="Monto de la deuda"
-                          fullWidth
-                          variant="outlined"
-                          error={!!errors.deudasPareja?.[index]?.monto}
-                          helperText={errors.deudasPareja?.[index]?.monto?.message}
-                        />
-                      )}
-                    />
-                  </Grid>
+  <Controller
+    name={`deudasPareja[${index}].monto`}
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Monto de la deuda
+            <Tooltip 
+              title="Aquí puedes describir el monto de la deuda de tu pareja, incluyendo cualquier detalle relevante."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.deudasPareja?.[index]?.monto}
+        helperText={errors.deudasPareja?.[index]?.monto?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
                   <Grid item xs={12} md={12}>
                     <Button variant="outlined" color="secondary" onClick={() => handleRemoveDebtWife(index)}>
                       Eliminar Deuda
@@ -500,57 +946,140 @@ const FinancialPlanForm = () => {
         {/* Sección de Información sobre Hijos y Buró de Crédito */}
         {currentSection === 3 && (
           <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <Controller
+              name="numeroHijos"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  type="number"
+                  label={
+                    <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+                      Número de hijos
+                      <Tooltip 
+                        title="Aquí puedes describir el número de hijos que tienes, lo cual puede ser relevante para ciertos análisis o beneficios."
+                        arrow
+                        placement="top"
+                        PopperProps={{
+                          sx: {
+                            '& .MuiTooltip-tooltip': {
+                              backgroundColor: '#333',
+                              color: '#fff',
+                            },
+                          },
+                        }}
+                      >
+                        <IconButton>
+                          <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+                        </IconButton>
+                      </Tooltip>
+                    </div>
+                  }
+                  fullWidth
+                  variant="outlined"
+                  error={!!errors.numeroHijos}
+                  helperText={errors.numeroHijos?.message}
+                  InputLabelProps={{
+                    style: { color: '#fff' },
+                  }}
+                  InputProps={{
+                    style: { color: '#fff' },
+                  }}
+                />
+              )}
+            />
+          </Grid>
             <Grid item xs={12} md={6}>
-              <Controller
-                name="numeroHijos"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="number"
-                    label="Número de hijos"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.numeroHijos}
-                    helperText={errors.numeroHijos?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="edadesHijos"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="text"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Edades de los hijos
+            <Tooltip 
+              title="Aquí puedes describir las edades de tus hijos, lo cual puede ser relevante para ciertos análisis o beneficios."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.edadesHijos}
+        helperText={errors.edadesHijos?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
             <Grid item xs={12} md={6}>
-              <Controller
-                name="edadesHijos"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="text"
-                    label="Edades de los hijos"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.edadesHijos}
-                    helperText={errors.edadesHijos?.message}
-                  />
-                )}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Controller
-                name="gastosEducativos"
-                control={control}
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    type="number"
-                    label="Gastos educativos"
-                    fullWidth
-                    variant="outlined"
-                    error={!!errors.gastosEducativos}
-                    helperText={errors.gastosEducativos?.message}
-                  />
-                )}
-              />
-            </Grid>
+  <Controller
+    name="gastosEducativos"
+    control={control}
+    render={({ field }) => (
+      <TextField
+        {...field}
+        type="number"
+        label={
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
+            Gastos educativos
+            <Tooltip 
+              title="Aquí puedes describir los gastos relacionados con la educación, como matrículas, libros y otros materiales."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
+              <IconButton>
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
+              </IconButton>
+            </Tooltip>
+          </div>
+        }
+        fullWidth
+        variant="outlined"
+        error={!!errors.gastosEducativos}
+        helperText={errors.gastosEducativos?.message}
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
+      />
+    )}
+  />
+</Grid>
+
             
 
 <Grid item xs={12} md={6}>
@@ -562,23 +1091,42 @@ const FinancialPlanForm = () => {
         {...field}
         type="number"
         error={!!errors.calificacionBuroCredito}
-                    helperText={errors.calificacionBuroCredito?.message}
+        helperText={errors.calificacionBuroCredito?.message}
         label={
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', color: '#fff' }}>
             Calificación del Buró de Crédito
-            <Tooltip title="La calificación del buró de crédito es una puntuación que refleja tu historial de pagos y deuda. Se utiliza para evaluar tu solvencia.">
+            <Tooltip 
+              title="La calificación del buró de crédito es una puntuación que refleja tu historial de pagos y deuda. Se utiliza para evaluar tu solvencia."
+              arrow
+              placement="top"
+              PopperProps={{
+                sx: {
+                  '& .MuiTooltip-tooltip': {
+                    backgroundColor: '#333',
+                    color: '#fff',
+                  },
+                },
+              }}
+            >
               <IconButton>
-                <InfoIcon sx={{ fontSize: 20 }} /> {/* Ícono de información */}
+                <InfoIcon sx={{ fontSize: 20, color: '#fff' }} /> {/* Ícono de información */}
               </IconButton>
             </Tooltip>
           </div>
         }
         fullWidth
         variant="outlined"
+        InputLabelProps={{
+          style: { color: '#fff' },
+        }}
+        InputProps={{
+          style: { color: '#fff' },
+        }}
       />
     )}
   />
 </Grid>
+
 
           </Grid>
         )}
@@ -602,10 +1150,10 @@ const FinancialPlanForm = () => {
     <Button
       type="submit"
       sx={{
-        backgroundColor: 'green',
+        backgroundColor: 'blue',
         color: 'white',
         '&:hover': {
-          backgroundColor: 'darkgreen',
+          backgroundColor: 'darkblue',
         },
       }}
     >
