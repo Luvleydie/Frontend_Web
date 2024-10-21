@@ -139,12 +139,6 @@ const FinancialPlanForm = () => {
         variant="outlined"
         error={!!errors.frecuenciaCompra}
         helperText={errors.frecuenciaCompra?.message}
-        InputProps={{
-          style: { color: 'white' }, // Cambia el color del texto aquí
-        }}
-        InputLabelProps={{
-          style: { color: 'white' }, // Cambia el color de la etiqueta aquí
-        }}
       >
         <MenuItem value="semanal">Semanal</MenuItem>
         <MenuItem value="mensual">Mensual</MenuItem>
@@ -153,6 +147,7 @@ const FinancialPlanForm = () => {
     )}
   />
 </Grid>
+
 
             <Grid item xs={12} md={6}>
   <Controller
@@ -747,12 +742,7 @@ const FinancialPlanForm = () => {
         variant="outlined"
         error={!!errors.estadoCivil}
         helperText={errors.estadoCivil?.message}
-        InputLabelProps={{
-          style: { color: '#fff' },
-        }}
-        InputProps={{
-          style: { color: '#fff' },
-        }}
+        
       >
         <MenuItem value="soltero">Soltero</MenuItem>
         <MenuItem value="casado">Casado</MenuItem>
