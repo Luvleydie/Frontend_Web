@@ -5,6 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Tooltip, IconButton } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info'; // Importa el ícono de información
+import { useNavigate } from 'react-router-dom';
+import { MenuItem } from '@mui/material';
+
 
 // Esquema de validación con Yup
 const schema = yup.object().shape({
@@ -45,6 +48,8 @@ const FinancialPlanForm = () => {
     resolver: yupResolver(schema),
   });
 
+  const navigate = useNavigate()
+
   const onSubmit = async (data) => {
     console.log(data);
 
@@ -62,8 +67,8 @@ const FinancialPlanForm = () => {
   
       const responseData = await response.json();
 
-      if (!responseData) {
-        alert("Formulario agregado")
+      if (responseData) {
+        navigate("/dashboard")
       }
       console.log('Respuesta del servidor:', responseData);
     } catch (error) {
@@ -141,9 +146,9 @@ const FinancialPlanForm = () => {
           style: { color: 'white' }, // Cambia el color de la etiqueta aquí
         }}
       >
-        <option value="semanal">Semanal</option>
-        <option value="mensual">Mensual</option>
-        <option value="ocasional">Ocasional</option>
+        <MenuItem value="semanal">Semanal</MenuItem>
+        <MenuItem value="mensual">Mensual</MenuItem>
+        <MenuItem value="ocasional">Ocasional</MenuItem>
       </TextField>
     )}
   />
@@ -749,9 +754,9 @@ const FinancialPlanForm = () => {
           style: { color: '#fff' },
         }}
       >
-        <option value="soltero">Soltero</option>
-        <option value="casado">Casado</option>
-        <option value="divorciado">Divorciado</option>
+        <MenuItem value="soltero">Soltero</MenuItem>
+        <MenuItem value="casado">Casado</MenuItem>
+        <MenuItem value="divorciado">Divorciado</MenuItem>
       </TextField>
     )}
   />

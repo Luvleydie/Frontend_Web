@@ -5,21 +5,11 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-<<<<<<< HEAD
-import LogIn from "./scenes/login/Login";
-import RegisterForm from "./scenes/login/Logup";
-import FinancialPlanForm from "./scenes/formFinanceStrategy/form";
 import Formulario from "./components/Chat";
-=======
-import Calendar from "./scenes/calendar/calendar";
-
-import Formulario from "./components/Chat";
-
 import LogIn from "./scenes/login/Login";
 import RegisterForm from "./scenes/login/Logup";
 import FinancialPlanForm from "./scenes/formFinanceStrategy/form";
 
->>>>>>> 1c05e0b1ba97f2a9de4823d3cc895574e1f32b1d
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);

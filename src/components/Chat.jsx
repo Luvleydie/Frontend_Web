@@ -3,17 +3,18 @@ import axios from 'axios'
 export default function Formulario() {
     const[question, setQuestion] = useState("");
     const[answer, setAnswer] = useState("");
-    async function generateAnswer(){
-        setAnswer("Cargando...")
-        const response = await axios({
-            url:"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyBXpMHvDDds12XKlteMg36hr-RbXm4OXqw",
-            method:"post",
-            data:{
-                contents:[
-                    {parts:[{
-                        "text":question}]}]}
-        });
-        setAnswer(response['data']['candidates'][0]['content']['parts'][0]['text'])
+    async function generateAnswer(e) {
+        e.preventDefault(); // Prevenir recarga de la página
+
+        setAnswer("Cargando...");
+        
+        try {
+            const response = await axios.post("http://localhost:3000/generate-answer", { question });
+            setAnswer(response.data.answer);
+        } catch (error) {
+            setAnswer("Error al generar respuesta");
+            console.error(error);
+        }
     }
   return (
     <div>
