@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 // Esquema de validación con Yup
 const registerSchema = yup.object().shape({
@@ -56,12 +57,20 @@ const RegisterForm = () => {
       if (responseData.newUser._id) {
         const id = localStorage.setItem('userId', responseData.newUser._id);
         if(!id){
+          Swal.fire({
+            title: '¡Registro exitoso!',
+            text: 'Te has registrado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
           navigate('/finance-form')
         }
         console.log('ID guardado en localStorage:', responseData.newUser._id);
       }
   
       console.log('Respuesta del servidor:', responseData);
+
+
     } catch (error) {
       console.error('Error al enviar los datos:', error);
     }

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 // Definir esquema de validación con Yup
 const loginSchema = yup.object().shape({
@@ -50,12 +51,21 @@ const LogIn = () => {
          localStorage.setItem('userId', responseData[0]._id);
         navigate('/finance-form')
         
+        Swal.fire({
+          title: '¡Inicio de sesión exitoso!',
+          text: 'Has iniciado sesión correctamente.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        });
       
-      
-  
-     
     } catch (error) {
       console.error('Error al enviar los datos');
+      Swal.fire({
+        title: 'Error',
+        text: 'Usuario o contraseña incorrectos.',
+        icon: 'error',
+        confirmButtonText: 'Reintentar',
+      });
     }
     // Aquí puedes manejar el envío de los datos del login
   };

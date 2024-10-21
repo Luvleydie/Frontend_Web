@@ -7,6 +7,7 @@ import { Tooltip, IconButton } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info'; // Importa el ícono de información
 import { useNavigate } from 'react-router-dom';
 import { MenuItem } from '@mui/material';
+import Swal from 'sweetalert2';
 
 
 // Esquema de validación con Yup
@@ -68,10 +69,23 @@ const FinancialPlanForm = () => {
       const responseData = await response.json();
 
       if (responseData) {
+        Swal.fire({
+          title: 'Datos registrados',
+          text: 'Tus datos se han enviado correctamente.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        })
+
         navigate("/dashboard")
       }
       console.log('Respuesta del servidor:', responseData);
     } catch (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Algun dato del formulario es incorrecto, revisar el formulario.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      })
       console.error('Error al enviar los datos:', error);
     }
   };
