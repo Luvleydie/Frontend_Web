@@ -432,52 +432,66 @@ export const mockPieData = [
 
 export const mockLineData = [
   {
-    id: "japan",
+    id: "Agosto",
     color: tokens("dark").greenAccent[500],
     data: [
       {
-        x: "plane",
+        x: "comida",
         y: 101,
       },
       {
-        x: "helicopter",
-        y: 75,
+        x: "salud",
+        y: 90,
       },
       {
-        x: "boat",
+        x: "educación",
         y: 36,
       },
       {
-        x: "train",
-        y: 216,
+        x: "transporte",
+        y: 246,
       },
       {
-        x: "subway",
+        x: "diversión",
+        y: 25,
+      },
+      {
+        x: "serivicios",
+        y: 136,
+      },
+      {
+        x: "others",
+        y: 44,
+      },
+    ],
+  },
+  {
+    id: "Septiembre",
+    color: tokens("dark").blueAccent[300],
+    data: [
+      {
+        x: "comida",
+        y: 101,
+      },
+      {
+        x: "salud",
+        y: 75,
+      },
+      {
+        x: "educación",
+        y: 46,
+      },
+      {
+        x: "transporte",
+        y: 100,
+      },
+      {
+        x: "diversión",
         y: 35,
       },
       {
-        x: "bus",
-        y: 236,
-      },
-      {
-        x: "car",
-        y: 88,
-      },
-      {
-        x: "moto",
-        y: 232,
-      },
-      {
-        x: "bicycle",
-        y: 281,
-      },
-      {
-        x: "horse",
-        y: 1,
-      },
-      {
-        x: "skateboard",
-        y: 35,
+        x: "serivicios",
+        y: 136,
       },
       {
         x: "others",
@@ -486,110 +500,36 @@ export const mockLineData = [
     ],
   },
   {
-    id: "france",
-    color: tokens("dark").blueAccent[300],
-    data: [
-      {
-        x: "plane",
-        y: 212,
-      },
-      {
-        x: "helicopter",
-        y: 190,
-      },
-      {
-        x: "boat",
-        y: 270,
-      },
-      {
-        x: "train",
-        y: 9,
-      },
-      {
-        x: "subway",
-        y: 75,
-      },
-      {
-        x: "bus",
-        y: 175,
-      },
-      {
-        x: "car",
-        y: 33,
-      },
-      {
-        x: "moto",
-        y: 189,
-      },
-      {
-        x: "bicycle",
-        y: 97,
-      },
-      {
-        x: "horse",
-        y: 87,
-      },
-      {
-        x: "skateboard",
-        y: 299,
-      },
-      {
-        x: "others",
-        y: 251,
-      },
-    ],
-  },
-  {
-    id: "us",
+    id: "Octubre",
     color: tokens("dark").redAccent[200],
     data: [
       {
-        x: "plane",
-        y: 191,
+        x: "comida",
+        y: 50,
       },
       {
-        x: "helicopter",
-        y: 136,
+        x: "salud",
+        y: 60,
       },
       {
-        x: "boat",
-        y: 91,
+        x: "educación",
+        y: 45,
       },
       {
-        x: "train",
-        y: 190,
+        x: "transporte",
+        y: 216,
       },
       {
-        x: "subway",
-        y: 211,
+        x: "diversión",
+        y: 35,
       },
       {
-        x: "bus",
-        y: 152,
-      },
-      {
-        x: "car",
-        y: 189,
-      },
-      {
-        x: "moto",
-        y: 152,
-      },
-      {
-        x: "bicycle",
-        y: 8,
-      },
-      {
-        x: "horse",
-        y: 197,
-      },
-      {
-        x: "skateboard",
-        y: 107,
+        x: "serivicios",
+        y: 236,
       },
       {
         x: "others",
-        y: 170,
+        y: 30,
       },
     ],
   },

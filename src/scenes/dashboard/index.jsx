@@ -270,6 +270,7 @@ const Dashboard = () => {
                 <Typography
                   variant="h3"
                   fontWeight="bold"
+                  textAlign="center"
                   color={colors.greenAccent[500]}
                 >
                   {info.numeroHijos || "0"}
